@@ -50,12 +50,12 @@ async def handle_message(client: Client, message: Message):
         # Continuously update the download progress
         while True:
             status = aria2.get_download(download.gid)
-            if status.is_complete:
+            if status.status == 'complete':
                 await message.reply_text(f"Download Complete: {status.name}")
                 file_path = status.files[0].path
                 await upload_file(client, message, file_path)
                 break
-            elif status.is_failed:
+            elif status.status == 'error':
                 await message.reply_text(f"Download Failed: {status.error_message}")
                 break
             else:
