@@ -17,4 +17,5 @@ COPY bot.py .
 EXPOSE 6800
 
 # Start the Aria2 daemon and run the bot script
-CMD ["sh", "-c", "aria2c --enable-rpc --rpc-listen-all --rpc-allow-origin-all --rpc-secret=mysecret & python bot.py"]
+#CMD ["sh", "-c", "aria2c --enable-rpc --rpc-listen-all --rpc-allow-origin-all --rpc-secret=mysecret & python bot.py"]
+CMD python bot.py
