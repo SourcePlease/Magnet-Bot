@@ -7,7 +7,7 @@ from telegram import Update, InputFile
 from telegram.ext import Updater, MessageHandler, filters, CallbackContext
 
 # Your Bot Token
-BOT_TOKEN = 'YOUR_BOT_API_TOKEN'
+BOT_TOKEN = '6006802393:AAFeAWs0NhPDOc4_Bnd9RMEYjJniN05GELw'
 
 # Function to start the Aria2 daemon
 def start_aria2_daemon():
