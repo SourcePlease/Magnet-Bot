@@ -4,14 +4,14 @@ import re
 import subprocess
 import aria2p
 from telegram import Update, InputFile
-from telegram.ext import Updater, MessageHandler, Filters, CallbackContext
+from telegram.ext import Updater, MessageHandler, filters, CallbackContext
 
 # Your Bot Token
-BOT_TOKEN = '6006802393:AAFeAWs0NhPDOc4_Bnd9RMEYjJniN05GELw'
+BOT_TOKEN = 'YOUR_BOT_API_TOKEN'
 
 # Function to start the Aria2 daemon
 def start_aria2_daemon():
-    aria2_process = subprocess.Popen(['aria2c', '--enable-rpc', '--rpc-listen-all', '--rpc-allow-origin-all'])
+    aria2_process = subprocess.Popen(['aria2c', '--enable-rpc', '--rpc-listen-all', '--rpc-allow-origin-all', '--rpc-secret=mysecret'])
     return aria2_process
 
 # Function to format the download progress
@@ -97,14 +97,14 @@ def main():
         aria2p.Client(
             host="http://localhost",
             port=6800,
-            secret=""
+            secret="mysecret"
         )
     )
 
     updater = Updater(BOT_TOKEN, use_context=True)
     dispatcher = updater.dispatcher
 
-    dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, handle_message))
+    dispatcher.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
 
     updater.start_polling()
     updater.idle()
