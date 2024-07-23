@@ -105,7 +105,7 @@ def main():
 
     app = Client("bot", bot_token=BOT_TOKEN, api_id=API_ID, api_hash=API_HASH)
     
-    @app.on_message(filters.text & ~filters.command)
+    @app.on_message(filters.text & filters.private & filters.incoming)
     async def on_message(client, message):
         await handle_message(client, message)
 
