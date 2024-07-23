@@ -9,4 +9,4 @@ COPY bot.py .
 
 EXPOSE 6800
 
-CMD ["sh", "-c", "aria2c --enable-rpc --rpc-listen-all --rpc-allow-origin-all & python bot.py"]
+CMD ["sh", "-c", "aria2c --enable-rpc --rpc-listen-all --rpc-allow-origin-all --rpc-secret=mysecret & python bot.py"]
