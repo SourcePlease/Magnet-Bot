@@ -19,7 +19,7 @@ def start_aria2_daemon():
 # Function to format the download progress
 def format_progress(status):
     name = status.name
-    progress = status.progress
+    progress = int(status.progress)  # Convert progress to integer
     completed_length = status.completed_length
     total_length = status.total_length
     download_speed = status.download_speed
