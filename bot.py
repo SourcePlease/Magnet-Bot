@@ -13,7 +13,7 @@ API_HASH = '2c015c994c57b312708fecc8a2a0f1a6'  # You need to get these from my.t
 
 # Function to start the Aria2 daemon
 def start_aria2_daemon():
-    aria2_process = subprocess.Popen(['aria2c', '--enable-rpc', '--rpc-listen-all', '--rpc-allow-origin-all', '--rpc-secret=mysecret'])
+    aria2_process = subprocess.Popen(['aria2c', '--enable-rpc', '--rpc-listen-all', '--rpc-allow-origin-all', '--rpc-secret='])
     return aria2_process
 
 # Function to format the download progress
