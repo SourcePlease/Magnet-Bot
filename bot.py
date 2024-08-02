@@ -99,7 +99,7 @@ def main():
         aria2p.Client(
             host="http://localhost",
             port=6800,
-            secret="mysecret"
+            secret=""
         )
     )
 
